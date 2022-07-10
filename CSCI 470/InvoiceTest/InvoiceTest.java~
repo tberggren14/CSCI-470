@@ -1,0 +1,13 @@
+public class InvoiceTest
+{
+  public static void main(string[] args)
+  {
+    Invoice invoice1 = new Invoice("AB-01, hammer, 2, 9.99")
+    
+      system.out.println(invoice1.getPartDesc);
+    
+    
+  }
+  
+  
+}
