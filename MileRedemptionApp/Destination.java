@@ -97,7 +97,7 @@ public class Destination
   {
     String out = "";
   
-    out = city;
+    out = city ;
 
     return out;
   }

@@ -4,10 +4,16 @@ import java.util.Scanner;
 import java.io.File;
 import java.lang.String;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Collections;
+
 
 public class MileRedeemer
 {
   ArrayList<Destination> destinationList = new ArrayList<Destination>();
+  Destination[] destinationArray;
+  int remainingMiles;
+  ArrayList<String> listOfDestinations = new ArrayList<String>();
   
   public void readDestinations(Scanner fileScanner)
   throws IOException
@@ -20,6 +26,7 @@ public class MileRedeemer
     int tempAdditionalMiles;
     int tempStartMonth;
     int tempEndMonth;
+    
 
     while(fileScanner.hasNextLine())
     {
@@ -41,37 +48,82 @@ public class MileRedeemer
 
         destinationList.add(newDestination);
   }
+
+    destinationArray = (Destination[]) destinationList.toArray(new
+    Destination[destinationList.size()]);
+
+    MileageComparator sortDest = new MileageComparator();
+    Arrays.sort(destinationArray,sortDest);
+  
       
   }
 
-  public String[] getCityNames(Destination[] destinationArray) 
+  public String[] getCityNames() 
   {
     int loop = 0;
     String[] availableDest = new String[9]; 
+    
     for(int x = 0; x < destinationArray.length; x++)
     {
         availableDest[x] = destinationArray[x].toString();
-        
-
-    
     }
     
+    Arrays.sort(availableDest);
     return availableDest;
     
   }
   
-  /*public String[] redeemMiles(int miles, int month)
+  public String[] redeemMiles(int miles, int month)
   {
+    setRemainingMiles(miles);
+    boolean superMileCheck = false;
+
+    for(Destination dest : destinationArray)
+    {
+      superMileCheck = checkSuperMiles(dest,month);
+
+      if(superMileCheck)
+      {
+        if(dest.getSuperMiles() <= remainingMiles)
+        listOfDestinations.add(dest.getCity());
+        setRemainingMiles(remainingMiles - dest.getSuperMiles());
+        
+      }
+
+      else
+      {
+        if(dest.getMiles() <= remainingMiles)
+        {
+          listOfDestinations.add(dest.getCity());
+          setRemainingMiles(remainingMiles - dest.getMiles());
+        }
+      }
+
+    }
     
+    String [] returnDestinations = new String[listOfDestinations.size()];
+
+      for(int x = 0; x < listOfDestinations.size(); x++)
+      {
+        returnDestinations[1] = listOfDestinations.get(1);
+
+      }
+
     
+  return returnDestinations;
+    
+  }
+
+  public void setRemainingMiles(int miles)
+  {
+    this.remainingMiles = miles;
+  }
+
+  public int getRemainingMiles()
+  {
+    return remainingMiles;
   }
   
-  public int getRemainingMiles( )
-  {
-    int tempReturn;
-    return tempReturn;
-  }
-  */
 
   public void printDestinations(String[] cityNames)
   {
@@ -85,7 +137,12 @@ public class MileRedeemer
 
     System.out.println("\n----------------------------------------------------------------\n");
   }
-  
-  
-  
+
+
+  public boolean checkSuperMiles(Destination dest,int month)
+  {
+    return (dest.getStartMonth() <= month && dest.getEndMonth() >= month);
+    
+  }
+
 }

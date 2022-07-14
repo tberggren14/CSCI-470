@@ -10,7 +10,6 @@ public class MileRedemptionApp
     Scanner input = new Scanner(System.in);
     
     MileRedeemer MileRedeemerObj = new MileRedeemer();
-    MileRedemptionApp MileRedemptionApp1 = new MileRedemptionApp();
     int userMiles;
     int departure;
     
@@ -29,10 +28,7 @@ public class MileRedemptionApp
     e.printStackTrace();
   }
 
-  Destination[] destinationArray = (Destination[]) MileRedeemerObj.destinationList.toArray(new
-        Destination[MileRedeemerObj.destinationList.size()]);
-
-  String[] cityNames = MileRedeemerObj.getCityNames(destinationArray);
+  String[] cityNames = MileRedeemerObj.getCityNames();
 
   MileRedeemerObj.printDestinations(cityNames);
 
@@ -41,6 +37,14 @@ public class MileRedemptionApp
 
   System.out.print("Please enter your client's month of departure (1-12): ");
   departure = input.nextInt();
+
+
+  String[] travelDest = MileRedeemerObj.redeemMiles(userMiles,departure);
+
+  //for(int x = 0; x < travelDest.length; x++)
+  System.out.printf("%n%s%S",travelDest[0]," ");
+
+
 
   }
   
