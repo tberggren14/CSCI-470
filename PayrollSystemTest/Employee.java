@@ -5,14 +5,16 @@ public abstract class Employee
    private final String firstName;
    private final String lastName;
    private final String socialSecurityNumber;
+   private final String birthDate;
 
    // constructor
    public Employee(String firstName, String lastName, 
-      String socialSecurityNumber)
+      String socialSecurityNumber,String birthDate)
    {
       this.firstName = firstName;                                    
       this.lastName = lastName;                                    
-      this.socialSecurityNumber = socialSecurityNumber;         
+      this.socialSecurityNumber = socialSecurityNumber; 
+      this.birthDate = birthDate;        
    } 
 
    // return first name

@@ -7,7 +7,7 @@ public class Date
    private int day; // 1-31 based on month
    private int year; // any year
 
-   private static final int[] daysPerMonth = 
+   private static final int[] daysPermonth = 
       {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
    
    // constructor: confirm proper value for month and day given the year
@@ -20,7 +20,7 @@ public class Date
 
       // check if day in range for month
       if (day <= 0 || 
-         (day > daysPerMonth[month] && !(month == 2 && day == 29)))
+         (day > daysPermonth[month] && !(month == 2 && day == 29)))
          throw new IllegalArgumentException("day (" + day + 
             ") out-of-range for the specified month and year");
 
@@ -42,5 +42,23 @@ public class Date
    public String toString()
    { 
       return String.format("%d/%d/%d", month, day, year); 
-   } 
+   }
+
+   public int getMonth()
+   {
+      return month;
+      
+   }
+
+   public int getDay()
+   {
+      return day;
+      
+   }
+
+   public int getYear()
+   {
+      return year;
+      
+   }
 }
