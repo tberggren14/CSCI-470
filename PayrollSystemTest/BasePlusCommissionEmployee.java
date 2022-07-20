@@ -6,10 +6,10 @@ public class BasePlusCommissionEmployee extends CommissionEmployee
 
    // constructor
    public BasePlusCommissionEmployee(String firstName, String lastName, 
-      String socialSecurityNumber, double grossSales,
+      String socialSecurityNumber,Date birthDate, double grossSales,
       double commissionRate, double baseSalary)
    {
-      super(firstName, lastName, socialSecurityNumber, 
+      super(firstName, lastName, socialSecurityNumber,birthDate, 
          grossSales, commissionRate);
 
       if (baseSalary < 0.0) // validate baseSalary                  

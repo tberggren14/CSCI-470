@@ -1,20 +1,28 @@
 // Employee hierarchy test program.
 
+import java.util.Scanner;
+
 public class PayrollSystemTest 
 {
    public static void main(String[] args) 
    {
+      Date date1 = new Date(6, 15, 1944);
+      Date date2 = new Date(12, 29, 1960);
+      Date date3 = new Date(9, 8, 1954);
+      Date date4 = new Date(3, 3, 1965);
+
       // create subclass objects
       SalariedEmployee salariedEmployee = 
-         new SalariedEmployee("John", "Smith", "111-11-1111", 800.00);
+         new SalariedEmployee("John", "Smith", "111-11-1111",date1, 800.00);
       HourlyEmployee hourlyEmployee = 
-         new HourlyEmployee("Karen", "Price", "222-22-2222", 16.75, 40);
+         new HourlyEmployee("Karen", "Price", "222-22-2222",date2, 16.75, 40);
       CommissionEmployee commissionEmployee = 
          new CommissionEmployee(
-         "Sue", "Jones", "333-33-3333", 10000, .06);
+         "Sue", "Jones", "333-33-3333",date3, 10000, .06);
       BasePlusCommissionEmployee basePlusCommissionEmployee = 
          new BasePlusCommissionEmployee(
-         "Bob", "Lewis", "444-44-4444", 5000, .04, 300);
+                  "Bob", "Lewis", "444-44-4444",date4, 5000, .04, 300);
+      
 
       System.out.println("Employees processed individually:");
       
@@ -26,7 +34,14 @@ public class PayrollSystemTest
          commissionEmployee, "earned", commissionEmployee.earnings());
       System.out.printf("%s%n%s: $%,.2f%n%n", 
          basePlusCommissionEmployee, 
-         "earned", basePlusCommissionEmployee.earnings());
+            "earned", basePlusCommissionEmployee.earnings());
+
+      Scanner input = new Scanner(System.in);
+
+      System.out.println("Enter the current month (1 - 12): ");
+
+      input.nextLine();
+
 
       // create four-element Employee array
       Employee[] employees = new Employee[4]; 
