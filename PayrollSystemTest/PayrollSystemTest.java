@@ -38,7 +38,7 @@ public class PayrollSystemTest
 
       Scanner input = new Scanner(System.in);
 
-      System.out.println("Enter the current month (1 - 12): ");
+      System.out.print("Enter the current month (1 - 12): ");
 
       input.nextLine();
 
