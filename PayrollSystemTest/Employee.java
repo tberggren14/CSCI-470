@@ -35,6 +35,12 @@ public abstract class Employee
       return socialSecurityNumber;
    }
 
+// return a int of the form month for the Employee BirthDay
+   public int getBirthDay()
+   {
+      return birthDate.getMonth();
+   }
+
    // return String representation of Employee object
    @Override
    public String toString()

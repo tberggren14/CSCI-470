@@ -1,3 +1,15 @@
+/**********************************************************
+* *
+* CSCI 470/502 Assignment 5 summer 2022
+* *
+* Developer(s): Trevor Berggren
+* *
+* Due Date: 7/1/2022
+* *
+* Purpose:  Modify the payroll system
+* *
+**********************************************************/
+
 // Employee hierarchy test program.
 
 import java.util.Scanner;
@@ -40,8 +52,7 @@ public class PayrollSystemTest
 
       System.out.print("Enter the current month (1 - 12): ");
 
-      input.nextLine();
-
+      int employeeBirthMonth = input.nextInt();
 
       // create four-element Employee array
       Employee[] employees = new Employee[4]; 
@@ -74,7 +85,18 @@ public class PayrollSystemTest
                employee.getBaseSalary());
          } 
 
-         System.out.printf(
+         
+         // check if it is the currentEmployees employeeBirthMonth
+         // if it is add 100 for a birthday bonus
+         if(employeeBirthMonth == currentEmployee.getBirthDay())
+         {
+             System.out.printf(
+            "earned $%,.2f%s%n%n", currentEmployee.earnings(), " plus $100.00 birthday bonus");
+
+         }
+
+         else
+            System.out.printf(
             "earned $%,.2f%n%n", currentEmployee.earnings());
       } 
 

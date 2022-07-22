@@ -44,18 +44,21 @@ public class Date
       return String.format("%d/%d/%d", month, day, year); 
    }
 
+// return a int of the form month
    public int getMonth()
    {
       return month;
       
    }
 
+// return a int of the form day
    public int getDay()
    {
       return day;
       
    }
 
+// return a int of the form year
    public int getYear()
    {
       return year;
