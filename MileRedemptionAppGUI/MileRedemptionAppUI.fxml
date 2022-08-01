@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Scene fill="BLACK" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MileRedemptionAppController">
+    <AnchorPane>
+      <children>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" height="197.0" layoutY="374.0" stroke="BLACK" strokeType="INSIDE" width="337.0">
+            <fill>
+               <LinearGradient endX="1.0" endY="1.0">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.2566733658313751" green="0.23763401806354523" blue="0.6184210777282715" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="1.0" green="1.0" blue="1.0" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </fill>
+         </Rectangle>
+         <TitledPane alignment="CENTER" animated="false" collapsible="false" layoutX="-2.0" layoutY="-1.0" prefHeight="373.0" text="Destinations">
+           <content>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="448.0" prefWidth="344.0">
+                  <children>
+                     <VBox layoutY="-2.0" prefHeight="353.0" prefWidth="338.0">
+                        <children>
+                           <ListView fx:id="destinationList" />
+                        </children>
+                     </VBox>
+                  </children></AnchorPane>
+           </content>
+         </TitledPane>
+         <TitledPane alignment="CENTER" animated="false" collapsible="false" layoutX="337.0" layoutY="-2.0" prefHeight="568.0" prefWidth="91.0" text="Redeem Miles">
+           <content>
+             <AnchorPane>
+                  <children>
+                     <Rectangle arcHeight="5.0" arcWidth="5.0" height="125.0" stroke="BLACK" strokeType="INSIDE" width="376.0">
+                        <fill>
+                           <LinearGradient endX="1.0" endY="1.0">
+                              <stops>
+                                 <Stop>
+                                    <color>
+                                       <Color red="1.0" green="0.33000001311302185" blue="0.33000001311302185" />
+                                    </color>
+                                 </Stop>
+                                 <Stop offset="1.0">
+                                    <color>
+                                       <Color red="1.0" green="1.0" blue="1.0" />
+                                    </color>
+                                 </Stop>
+                              </stops>
+                           </LinearGradient>
+                        </fill>
+                     </Rectangle>
+                     <Rectangle arcHeight="5.0" arcWidth="5.0" height="60.0" layoutX="-3.0" layoutY="487.0" stroke="BLACK" strokeType="INSIDE" width="385.0">
+                        <fill>
+                           <LinearGradient endX="1.0" endY="1.0">
+                              <stops>
+                                 <Stop>
+                                    <color>
+                                       <Color red="1.0" green="0.33000001311302185" blue="0.33000001311302185" />
+                                    </color>
+                                 </Stop>
+                                 <Stop offset="1.0">
+                                    <color>
+                                       <Color red="1.0" green="1.0" blue="1.0" />
+                                    </color>
+                                 </Stop>
+                              </stops>
+                           </LinearGradient>
+                        </fill>
+                     </Rectangle>
+                     <Button fx:id="redeemMilesButton" layoutY="117.0" mnemonicParsing="false" onMouseClicked="#redeemMiles" prefHeight="30.0" prefWidth="377.0" text="Redeem Miles">
+                        <effect>
+                           <Bloom threshold="1.0">
+                              <input>
+                                 <InnerShadow />
+                              </input>
+                           </Bloom>
+                        </effect></Button>
+                     <TextField fx:id="milesEntered" layoutX="150.0" layoutY="50.0" prefHeight="26.0" prefWidth="223.0" />
+                     <Label layoutX="13.0" layoutY="495.0" text="Your remaining miles" />
+                     <TextField fx:id="RemainingMilesLabel" editable="false" focusTraversable="false" layoutX="150.0" layoutY="495.0" />
+                     <Label layoutX="15.0" layoutY="50.0" text="Enter your miles" />
+                     <Label layoutX="15.0" layoutY="90.0" text="Select the month of departure" />
+                     <SplitMenuButton fx:id="departureMonth" accessibleRole="DATE_PICKER" cache="true" contentDisplay="CENTER" layoutX="200.0" layoutY="90.0" mnemonicParsing="false" onMouseExited="#departureMonthMenu" text="Month">
+                       <items>
+                         <MenuItem text="Jan" />
+                         <MenuItem mnemonicParsing="false" text="Feb" />
+                           <MenuItem mnemonicParsing="false" text="Mar" />
+                           <MenuItem mnemonicParsing="false" text="Apr" />
+                           <MenuItem mnemonicParsing="false" text="May" />
+                           <MenuItem mnemonicParsing="false" text="Jun" />
+                           <MenuItem mnemonicParsing="false" text="Jul" />
+                           <MenuItem mnemonicParsing="false" text="Aug" />
+                           <MenuItem mnemonicParsing="false" text="Sep" />
+                           <MenuItem mnemonicParsing="false" text="Oct" />
+                           <MenuItem mnemonicParsing="false" text="Nov" />
+                           <MenuItem mnemonicParsing="false" text="Dec" />
+                       </items>
+                     </SplitMenuButton>
+                  </children>
+               </AnchorPane>
+           </content>
+         </TitledPane>
+         <Label alignment="CENTER" layoutX="15.0" layoutY="385.0" text="Normal miles">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="15.0" layoutY="425.0" text="Supersaver miles">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="15.0" layoutY="465.0" text="Upgrade cost">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <Label layoutX="15.0" layoutY="505.0" text="Supersaver Dates">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <TextField fx:id="normalMilesLabel" editable="false" focusTraversable="false" layoutX="130.0" layoutY="385.0" />
+         <TextField fx:id="superSaverMilesLabel" editable="false" focusTraversable="false" layoutX="130.0" layoutY="425.0" />
+         <TextField fx:id="upgradeCostLabel" editable="false" focusTraversable="false" layoutX="130.0" layoutY="465.0" />
+         <TextField fx:id="superSaverMonths" editable="false" focusTraversable="false" layoutX="130.0" layoutY="505.0" />
+      </children></AnchorPane>
+</Scene>
